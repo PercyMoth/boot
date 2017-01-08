@@ -1,0 +1,37 @@
+buildscript {
+// you can use the classes in your build script as you would any other classes on the classpath
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		// The Spring Boot Gradle Plugin provides Spring Boot support in Gradle, allowing you to package executable jar or war archives,
+		// run Spring Boot applications and use the dependency management provided by spring-boot-dependencies
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins { 
+	id 'org.springframework.boot' version '1.4.3.RELEASE'
+	id 'groovy'
+}
+
+jar {
+	baseName = 'boot'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.codehaus.groovy:groovy")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
