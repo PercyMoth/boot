@@ -1,14 +1,20 @@
 package m.g
 
+import spock.lang.*
+
+// import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-class WebGroovyCntlSpec extends spock.lang.Specification {
+class WebGroovyCntlSpec extends Specification {
 
-	@Test
-	void homeSaysHelloWorld() {
-		assertSame("Says Hello Groovy Boot!", new WebGroovyCntl().home(), "Hello Groovy Boot!")
+	def "Web Cntl Say Hello"() {
+	when:
+	
+		WebGroovyCntl cntl = new WebGroovyCntl()
+	then:
+
+		cntl.home() == "Hello Groovy Boot!"
 
 	}
 
